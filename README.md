@@ -1,32 +1,46 @@
 # Coronavirus case data portal
 
-This app was built by modifying the default app produced by create-vue using Vite, and as such may contain extraneous code. You can see what is boilerplate and what is written by me using the git history.
+An app for viewing cases over time in your area.
+
+Things I didn't get round to doing are marked 'TODO' inline.
 
 ## Running the app
 
-### Dependencies
+### Versions
 
-Node version: v16.17.0
-npm version: 8.15.0
-Vue version: 3.3.4
+* Node version: v16.17.0
+* npm version: 8.15.0
+* Vue version: 3.3.4
+
+### Set up the app by installing dependencies
+```
+npm install
+```
 
 ### Run the app locally
 ```
-npm install
 npm run dev
 ```
 
 ### Running tests
-
 #### Unit tests
+
+I didn't have time to write unit tests; but most of the things eligible for unit testing are implicitly tested by the component or end-to-end tests, for example, the filtering of the API data by date (in `ChartWrapper`'s `parsedData` computed method).
+#### Component tests
 ```
-npm run test:unit
+npm run test:component:dev
 ```
+
+This boots up Cypress.
+Then click on Chrome > E2E Testing
 
 #### End-to-end tests
 ```
-npm run test:e2e
+npm run test:e2e:dev
 ```
+
+This boots up Cypress.
+Then click on Chrome > Component Testing
 
 ### Code quality
 
