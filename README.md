@@ -27,20 +27,26 @@ npm run dev
 
 I didn't have time to write unit tests; but most of the things eligible for unit testing are implicitly tested by the component or end-to-end tests, for example, the filtering of the API data by date (in `ChartWrapper`'s `parsedData` computed method).
 #### Component tests
+NB to switch from one type of testing to the other, you should close and reopen the cypress test server.
+
 ```
 npm run test:component:dev
 ```
 
 This boots up Cypress.
-Then click on Chrome > E2E Testing
+Then click on Chrome > Component Testing
+Click on a *.cy.js file to run the tests in that file.
 
 #### End-to-end tests
+NB to switch from one type of testing to the other, you should close and reopen the cypress test server.
+
 ```
 npm run test:e2e:dev
 ```
 
 This boots up Cypress.
-Then click on Chrome > Component Testing
+Then click on Chrome > E2E Testing
+Click on a *.cy.js file to run the tests in that file.
 
 ### Code quality
 
