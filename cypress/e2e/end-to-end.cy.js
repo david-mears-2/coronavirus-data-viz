@@ -12,7 +12,7 @@ describe('end-to-end tests', () => {
     const areaName = 'London'
 
     cy.intercept({
-      url: `https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=${areaType};areaName=${areaName}&structure=%7B%22date%22:%22date%22,%22newCases%22:%22newCasesByPublishDateRollingSum%22%7D`,
+      url: `https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=${areaType};areaName=${areaName}&structure=%7B%22date%22:%22date%22,%22newCases%22:%22newCasesBySpecimenDateRollingSum%22%7D`,
       method: 'GET',
     },
     {
@@ -22,7 +22,7 @@ describe('end-to-end tests', () => {
     fillForm(areaType, areaName)
     cy.wait('@getCoronavirusDataForLondon')
     cy.contains(
-      `Viewing a 7-day rolling average number of cases in ${areaName} since 23/01/2022 by publication date.`
+      `Viewing a 7-day rolling average number of cases in ${areaName} since 23/01/2022 by specimen date.`
     )
     cy.wait(1000) // Useful for visual testing - ensures canvas is painted by the time the snapshot is taken
     cy.get("#chartId").should('exist')
@@ -33,7 +33,7 @@ describe('end-to-end tests', () => {
     const areaName = 'Wales'
 
     cy.intercept({
-      url: `https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=${areaType};areaName=${areaName}&structure=%7B%22date%22:%22date%22,%22newCases%22:%22newCasesByPublishDateRollingSum%22%7D`,
+      url: `https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=${areaType};areaName=${areaName}&structure=%7B%22date%22:%22date%22,%22newCases%22:%22newCasesBySpecimenDateRollingSum%22%7D`,
       method: 'GET',
     },
     {
@@ -43,7 +43,7 @@ describe('end-to-end tests', () => {
     fillForm(areaType, areaName)
     cy.wait('@failedRequest')
     cy.contains(
-      `Viewing a 7-day rolling average number of cases in ${areaName} since 23/01/2022 by publication date.`
+      `Viewing a 7-day rolling average number of cases in ${areaName} since 23/01/2022 by specimen date.`
     )
     cy.contains(`Error`)
     cy.contains(`No data to display`)

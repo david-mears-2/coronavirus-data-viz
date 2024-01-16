@@ -2,6 +2,7 @@ import axios from 'axios'
 
 // TODO: Unit testing
 // TODO: Cache common requests
+// TODO: Deal with pagination ('the maximum limit of the API is currently set to 1000 records per request').
 class ApiData {
   baseUrl = 'https://api.coronavirus.data.gov.uk/v1/data'
 
@@ -15,7 +16,7 @@ class ApiData {
     return (
       `${this.baseUrl}?` +
       `filters=areaType=${this.areaType};areaName=${this.area}&` +
-      `structure={"date":"date","newCases":"newCasesByPublishDateRollingSum"}`
+      `structure={"date":"date","newCases":"newCasesBySpecimenDateRollingSum"}`
     )
   }
 

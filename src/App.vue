@@ -25,7 +25,8 @@ const area = ref(areas.value[areaType.value][0])
 const minDate = readonly(ref(new Date('2020-02-02')))
 
 watch(area, async () => refreshChartData())
-// TODO: Improve logic so that changing the since date does not trigger a new API request (but still updates the chart)
+// TODO: Improve logic so that changing the since date does not trigger a new API request (but still updates the
+// chart using previously fetched data)
 watch(sinceDate, async () => refreshChartData())
 
 async function refreshChartData() {
@@ -64,7 +65,7 @@ const areaOptions = computed(() => areas.value[areaType.value])
         Viewing a 7-day rolling average number of cases in
         <span class="green">{{ area }}</span> since
         <span class="green">{{ readableDate }}</span>
-        by publication date.
+        by specimen date.
       </h3>
     </div>
 
